@@ -1,0 +1,116 @@
+.devconsole, .devconsole * {
+    border: none 0 #f70;
+    box-sizing: border-box;
+    font-family: "Consolas";
+    font-weight: 500;
+    margin: 0;
+    outline: none 0 #f70;
+    overflow: hidden;
+    padding: 0;
+}
+
+/* default colors assume dark background in page */
+.devconsole {
+    border: double 3px #eeec;
+    color: #eeec;
+}
+.devconsole, .devconsole * {
+    border-color: #eeec;
+}
+.devconsole .dbt {
+    border-top: double 3px #eeec;
+}
+
+/* black & orange */
+.devconsole.csorange {
+    background: #000b;
+    color: #fc0a;
+}
+.devconsole.csorange, .devconsole.csorange *, .devconsole.csorange .dbt {
+    border-color: #fc0a;
+}
+
+/* light blue futurustic */
+.devconsole.csbl {
+    background: #057d;
+    color: #0aee;
+}
+.devconsole.csbl, .devconsole.csbl *, .devconsole.csbl .dbt {
+    border-color: #0aee;
+}
+
+/* frosted glass */
+.devconsole.cswhite {
+    background: #fffc;
+    color: #aace;
+}
+.devconsole.cswhite, .devconsole.cswhite *, .devconsole.cswhite .dbt {
+    border-color: #aace;
+}
+
+/* sea glass */
+.devconsole.cssea {
+    background: #3b87;
+    color: #3b8e;
+}
+.devconsole.cssea, .devconsole.cssea *, .devconsole.cssea .dbt {
+    border-color: #3b8e;
+}
+
+
+
+
+.devconsole.wrapper {
+    border-radius: 5px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    right: 2px;
+    bottom: 2px;
+}
+.wrapper>.inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+.wrapper>.inner>* {
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+}
+.devconsole .body {
+}
+.devconsole .body>.text {
+    display: block;
+    overflow-y: auto;
+    padding: 2px;
+    position: absolute;
+    left: 0;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+}
+.devconsole .footer {
+    box-sizing: content-box;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding-left: 3px;
+}
+.devconsole .footer>.input {
+    display: block;
+    line-height: normal;
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    right: 1.5rem;
+    bottom: 0;
+}
+.input>input {
+    background: transparent;
+    color: inherit;
+    height: 100%;
+    width: 100%;
+}
