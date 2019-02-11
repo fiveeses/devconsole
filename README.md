@@ -50,7 +50,10 @@ cswhite - "Frosted Glass" - Semi-transparent white, with a bluish-tinted white f
 
 Semi-transparency can lead to some extremely low-contrast scenarios.  Colors are likely to change a bit as I play with them.
 
-### Multiple instances in one page
+### Example Use
+An example use of devconsole is contained in the project root, in `index.html, test.js, and test.css`.
+
+### Multiple Instances in One Page
 It is possible, though not an explicitly endorsed or intended use case for multiple devconsole instances to be created on a single page.  Presently, initializing multiple devconsole instances on the same element, or multiple levels within a single tree within the DOM will cause overlapping, and likely unpleasant effects.  At some point, I may safeguard against any of these facets.  Either way, I wouldn't recommend trying this.
 
 ## Issues
@@ -70,6 +73,8 @@ I'm not a lawyer, so probably if you're determined, you are able to find loop ho
 Just be kind.
 
 @ 2019 The person behind the FiveEses github.
+
+Everything in this section applies the class/style switching code in the example/test page, too. 
 
 # FiveEses
 The last two stand for "Software Studio."
