@@ -1,0 +1,25 @@
+{
+  "name": "devconsole",
+  "version": "1.0.0",
+  "description": "Script dev console for launching development funtionality via a commandline.",
+  "main": "dc.umd.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rollup": "del .\\dc.js && rollup src/index.js --file dc.js --format esm --name devconsole",
+    "rollumd": "del  .\\dc.umd.js && rollup src/index.js --file dc.umd.js --format umd --name devconsole"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiveeses/devconsole.git"
+  },
+  "author": "FiveEses",
+  "private": true,
+  "license": "SEE LICENSE IN README.md",
+  "bugs": {
+    "url": "https://github.com/fiveeses/devconsole/issues"
+  },
+  "homepage": "https://github.com/fiveeses/devconsole#readme"
+}

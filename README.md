@@ -4,7 +4,8 @@
 devconsole is an overlay to be injected into the page to allow interaction with programs within the page via a commandline.
 
 ## Build
-devconsole is not yet automated into a build.  The contents of /src/ are presently the form which this code takes for distribution.
+~~devconsole is not yet automated into a build.  The contents of /src/ are presently the form which this code takes for distribution.~~
+**rollup** devconsole is built with rollup. Use `npm run rollup` or `npm run rollumd` for es6 or umd, respectively.
 
 ## Automated Testing
 devconsole is not yet set up for automated testing
