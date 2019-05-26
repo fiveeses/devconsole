@@ -22,7 +22,10 @@ body {
     color: #333;
 }
 
-
+.layout {
+    display: flex;
+    width: auto;
+}
 #target, canvas {
     background: transparent;
     box-sizing: border-box;
@@ -31,6 +34,16 @@ body {
     position: relative;
     width: 640px;
 }
+#trget {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
 canvas {
     background: transparent;
+}
+#side {
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 200px;
 }

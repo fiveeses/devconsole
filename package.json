@@ -1,23 +1,49 @@
 {
   "name": "devconsole",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Script dev console for launching development funtionality via a commandline.",
-  "main": "dc.umd.js",
-  "directories": {
-    "test": "test"
-  },
+  "main": "(none)",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "rollup": "del .\\dc.js && rollup src/index.js --file dc.js --format esm --name devconsole",
-    "rollumd": "del  .\\dc.umd.js && rollup src/index.js --file dc.umd.js --format umd --name devconsole"
+    "iDocs": ".\\node_modules\\.bin\\esdoc",
+    "iTest": ".\\node_modules\\.bin\\karma start",
+    "iTdd": ".\\node_modules\\.bin\\karma start --no-single-run",
+    "listTasks": "gulp --tasks",
+    "lint": "gulp lint",
+    "test": "gulp test",
+    "tdd": "gulp tdd",
+    "qa": "gulp qa",
+    "clean": "gulp clean",
+    "build": "gulp build",
+    "fullClean": "gulp fullClean",
+    "fullBuild": "gulp fullBuild",
+    "cleanDocs": "gulp cleanDocs",
+    "buildDocs": "gulp buildDocs",
+    "docs": "gulp runDocs",
+    "fullDocs": "gulp fullRunDocs",
+    "exrollup": "del .\\example\\lib\\dc.js && rollup src/index.js --file ./example/lib/dc.js --format esm --name devconsole",
+    "exrollumd": "del  .\\example\\lib\\dc.umd.js && rollup src/index.js --file ./example/lib/dc.umd.js --format umd --name devconsole"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fiveeses/devconsole.git"
   },
-  "author": "FiveEses",
-  "private": true,
+  "author": "FiveEses <fiveeses@gmail.com>",
   "license": "SEE LICENSE IN README.md",
+  "dependencies": {},
+  "devDependencies": {
+    "acorn": "^6.0.0",
+    "del": "^4.1.1",
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "eslint": "^5.16.0",
+    "gulp": "^4.0.2",
+    "jasmine-core": "^3.4.0",
+    "karma": "^4.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-spec-reporter": "0.0.32",
+    "rollup": "^1.12.2"
+  },
   "bugs": {
     "url": "https://github.com/fiveeses/devconsole/issues"
   },

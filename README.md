@@ -1,16 +1,29 @@
 # devconsole
 
-## Wat?
 devconsole is an overlay to be injected into the page to allow interaction with programs within the page via a commandline.
 
-## Build
+
+## Maintenance
+
+This project is created and maintained by [you].
+
+
+## Linting
+
+Linting the codebas is done with esLint. (https://eslint.org/)
+
+
+## Testing
+
+### Single-run sweep through the unit tests
+> $ npm run test
+
+
+## Build and Usage
+
 ~~devconsole is not yet automated into a build.  The contents of /src/ are presently the form which this code takes for distribution.~~
 **rollup** devconsole is built with rollup. Use `npm run rollup` or `npm run rollumd` for es6 or umd, respectively.
 
-## Automated Testing
-devconsole is not yet set up for automated testing
-
-## Support / Usage / Consumption
 In its current state, devconsole is only usable by es6 module loading.
 
 All major modern desktop browsers in their latest stable versions are capable of this, but I'll own up to the fact that I'm really not paying any attention to anything but Chrome, right now.  IE is incapable of making use of this.
@@ -57,8 +70,23 @@ An example use of devconsole is contained in the project root, in `index.html, t
 ### Multiple Instances in One Page
 It is possible, though not an explicitly endorsed or intended use case for multiple devconsole instances to be created on a single page.  Presently, initializing multiple devconsole instances on the same element, or multiple levels within a single tree within the DOM will cause overlapping, and likely unpleasant effects.  At some point, I may safeguard against any of these facets.  Either way, I wouldn't recommend trying this.
 
+
+## Documentation
+
+Documentation for this project is generated with esDoc. (https://esdoc.org/)  
+It has been integrated into npm commands. You may either simply build the documentation, or build and view it.
+
+### Build documentation
+> $ npm run builddoc
+
+### Build and view documentation
+
+This will be automated, but isn't yet. For now, follow the build documentation, then in the "doc/" folder, sibling to source, run the index.html.
+
+
 ## Issues
 `Oh no! What have you done? This won't go away...`  Yes, that's right - this isn't a functional item, yet.  At a later point, this will be a modal flyout; however, it is just an always-up overlay at present.
+
 
 ## Maintenance / Contact
 This item will be curated by FiveEses on github (https://github.com/fiveeses).
@@ -77,5 +105,21 @@ Just be kind.
 
 Everything in this section applies the class/style switching code in the example/test page, too. 
 
-# FiveEses
-The last two stand for "Software Studio."
+
+## Project origin
+This project began from the template ***es6template_sssss*** by FiveEses.
+* Email **FiveEses <<fiveeses@gmail.com>>**
+* FiveEses on [**npmjs.org**](https://www.npmjs.com/~fiveeses)
+* FiveEses on [**github**](https://github.com/fiveeses)
+
+### Template contents
+The template contains:
+
+	- gulp
+	- esdoc
+	- eslint
+	- karma
+	- jasmine
+	- rollup
+
+

@@ -59,8 +59,17 @@
 
 
 
+.devconsole.hidden,
+.devconsole.outer.hidden,
+.devconsole .tab-slot>.text.hidden,
+.devconsole .tab-slot>.tab-switcher.hidden {
+    display: none;
+}
+.devconsole.hidden, .devconsole.outer.hidden {
+    height: 0;
+}
 
-.devconsole.wrapper {
+.devconsole.outer {
     border-radius: 5px;
     position: absolute;
     left: 2px;
@@ -68,20 +77,43 @@
     right: 2px;
     bottom: 2px;
 }
-.wrapper>.inner {
+.outer>.inner {
     display: flex;
     flex-direction: column;
     height: 100%;
     position: relative;
 }
-.wrapper>.inner>* {
+.outer>.inner>* {
     flex-grow: 1;
     position: relative;
     width: 100%;
 }
-.devconsole .body {
+.devconsole .tab-slot>.tab-switcher {
+    box-sizing: border-box;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    display: inline-block;
+    padding: 3px;
+    max-width: 90%;
+    max-height: 3.3rem;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 900;
 }
-.devconsole .body>.text {
+.devconsole .tab-switcher>a.button {
+    background: #fff;
+    color: #00f;
+    border: none 0 #f70;
+    font-weight: 600;
+    margin: 0;
+    padding: 2px;
+    text-decoration: none;
+}
+.devconsole .tab-switcher>a.button:focus {
+    text-decoration: underline;
+}
+.devconsole .tab-slot>.text {
     display: block;
     overflow-y: auto;
     padding: 2px;
@@ -99,7 +131,7 @@
     line-height: 1.5rem;
     padding-left: 3px;
 }
-.devconsole .footer>.input {
+.devconsole .footer>.input-slot {
     display: block;
     line-height: normal;
     position: absolute;
@@ -108,9 +140,12 @@
     right: 1.5rem;
     bottom: 0;
 }
-.input>input {
+.input-slot>input {
     background: transparent;
     color: inherit;
     height: 100%;
     width: 100%;
+}
+.input-slot>input[type='text']::-ms-clear {
+	display: none; /* Say goodbye to IE/Edge clearing x */
 }

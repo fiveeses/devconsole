@@ -1,0 +1,71 @@
+devconsole (index.js)
+{
+   init,       (function(forElement, className, notPromise))
+   Processor   (class)
+}
+
+init (forElement, className, notPromise)
+   forElement (HTML Element to tack the console onto)
+   className (optional class name to put on the console)
+   notPromise - by default, the init will result in a promise which resolves to the console
+                  but if notPromise is true, it'll directly return the console
+
+dc (HTML Element with extra abilities)
+   <HTMLElement members>
+
+   addTab
+   toggle
+
+
+Processor should be loaded up with utilities, and MainProcessor should be created in dc.init.core
+
+addTab({ execute, element, title})
+   element (optional -- will make "article" if unspecified)
+   title - name of the tab to be created
+   execute - 
+
+   execute is presently unused :(
+   There's a TODO in tabs init
+   will need either:
+      * processor 
+      * commands (will result in the creation of a commandtable processor) 
+      * executor (execute - will result in a processor which uses this exe)
+
+// what happens currently?
++ keypress all entry is fine except tilde which gets 
+   screened because it switches tabs
++ keyup - enter does envelope execute (set in init core)
+
+execute
+  executeMain
+    (catch) executeInActiveTab
+  executeInActiveTab
+
+   all go to execute in tab
+
+      runs tab.execute or reject if no tabs
+
+      tab does not have exe because nothing gets added yet
+
+
+
+
+// init
+   envelope { }
+   
+   dc = make HTML  (just DOM, no fn)
+      + envelope.outer=dc
+   
+   append dc to target
+
+   createTabs
+      + dc.addTab
+   
+   initializeTextInput
+            > input--ESC---->outer.toggle()
+            > input--ENTER-->envelope.execute()
+
+   initializeCore
+      + dc.toggle
+            > envelope.execute
+

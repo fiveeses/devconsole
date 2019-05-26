@@ -1,19 +1,19 @@
-import devconsole from "./src/index.js";
-function log(...params) {
-    const c = console;
-    c.log(`[${Date.now()}] DC`, ...params);
-}
+import { devconsole, clog } from "lib/devconsole.js";
 
 (function iife() {
-    log("iife()");
 
     // arrange
+    const layout = document.getElementById("layout");
     const target = document.getElementById("target");
+    const side = document.getElementById("side");
 
     // arrange style switcher
     const stylediv = document.createElement("section");
-    const bodyClasses = [document.createElement("span"), document.createElement("span"), document.createElement("span")];
-    const consoleClasses = [document.createElement("span"), document.createElement("span"), document.createElement("span")];
+
+    function createSwitcherSpans() {
+        return [document.createElement("span"), document.createElement("span"), document.createElement("span")];
+    }
+
     const bc = [["Default", null],["Ultima II", "u2"],["Inverse UII", "iu2"]];
     const cc = [["Default", null],["Orange","csorange"],["Southern Teal","csbl"],["Frosted Glass","cswhite"],["Sea Glass","cssea"]];
     function applyClassSwitcher(desc, switchElements, classes, affectedElement, checkDefault) {
@@ -31,22 +31,25 @@ function log(...params) {
                 if (removeClassName) {
                     affectedElement.classList.remove(removeClassName);
                 }
+
                 // selector styling
                 const unstyle = vars.elements[selected].style;
                 unstyle.fontWeight = null;
                 unstyle.textDecoration = null;
                 unstyle.color = null;
             }
+
             // select index if index != selectedClass
             if (selected !== index) {
                 vars.selected = index;
+
                 // element styling
                 const addClassName = classes[index] && classes[index][1];
                 if (addClassName) {
                     affectedElement.classList.add(addClassName)
                 }
+
                 // selector styling
-                console.log(this === vars.elements[index], vars.elements[index], this);
                 const style = vars.elements[index].style;
                 style.fontWeight = "600";
                 style.textDecoration = "none";
@@ -84,16 +87,39 @@ function log(...params) {
         toggleClass((checkDefault && (defaultClass > -1)) ? defaultClass : 0);
     }
 
-    // act
-    log("initializing devconsole(target)", devconsole, target);
     // make the dev console
-    const dc = devconsole.init(target, "csbl");
-    // apply style switcher
-    const ct = [["body", bodyClasses, bc, (document.body), true],["console", consoleClasses, cc, dc, true]];
-    ct.forEach((data) => { applyClassSwitcher(...data); });
-    document.body.insertBefore(stylediv, target);
+    const dc = devconsole.init(target, "csbl", true);
+    const dcTwo = devconsole.init(side, "csbl", true);
 
-    log("end iife");
+    // apply style switcher
+    const ct = [
+        ["body", (createSwitcherSpans()), bc, (document.body), true],
+        ["console", (createSwitcherSpans()), cc, dc, true],
+        ["side console", (createSwitcherSpans()), cc, dcTwo, true]
+    ];
+
+    ct.forEach((data) => { applyClassSwitcher(...data); });
+
+    document.body.insertBefore(stylediv, layout);
+
+    stylediv.append(
+        document.createTextNode("press ` to toggle the devconsole")
+    );
+    function handleKeyup(e) {
+        switch(e.key) {
+            case "`" : { dc.toggle(); } break;
+            case "=" : { dcTwo.toggle(); } break;
+        }
+        return e;
+    };
+    document.body.addEventListener("keyup", handleKeyup);
+
+    function handle(str) {
+        return this.enterLine(`handle: ${str}`);
+    }
+    dc.addTab({ execute: handle, title: "Secondary Tab"});
+
+    document.body.focus();
 }());
 
 // eof
